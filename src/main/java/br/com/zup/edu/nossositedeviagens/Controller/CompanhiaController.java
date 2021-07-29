@@ -30,7 +30,6 @@ public class CompanhiaController {
         this.companhiaRepository = companhiaRepository;
     }
     @PostMapping
-    @Transactional
     public ResponseEntity<CompanhiaDtoResponse> addCompanhia(@RequestBody @Valid CompanhiaForm form, UriComponentsBuilder uriBuilder) {
         Companhia companhia = form.toModel(paisRepository);
         companhiaRepository.save(companhia);

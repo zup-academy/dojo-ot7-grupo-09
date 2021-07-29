@@ -1,4 +1,7 @@
 package br.com.zup.edu.nossositedeviagens.Repository;
 
-public interface AeroportoRepository {
+import br.com.zup.edu.nossositedeviagens.Model.Aeroporto;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AeroportoRepository extends JpaRepository<Aeroporto,Long > {
 }
