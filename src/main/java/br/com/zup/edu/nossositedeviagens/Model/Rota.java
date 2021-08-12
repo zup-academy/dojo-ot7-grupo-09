@@ -1,5 +1,6 @@
 package br.com.zup.edu.nossositedeviagens.Model;
 
+import br.com.zup.edu.nossositedeviagens.Common.TipoRota;
 import br.com.zup.edu.nossositedeviagens.DTO.AeroportoDtoResponse;
 import br.com.zup.edu.nossositedeviagens.DTO.RotaDtoResponse;
 
@@ -26,15 +27,22 @@ public class Rota {
     @NotNull
     private Integer duracao;
 
+    @ManyToOne
+    private Voos voos;
+
+    @Enumerated(EnumType.STRING)
+    private TipoRota tipoRota;
+
     @Deprecated
     public Rota() {
     }
 
-    public Rota(String nome, Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino, Integer duracao) {
+    public Rota(String nome, Aeroporto aeroportoOrigem, Aeroporto aeroportoDestino, Integer duracao, TipoRota tipoRota) {
         this.nome = nome;
         this.aeroportoOrigem = aeroportoOrigem;
         this.aeroportoDestino = aeroportoDestino;
         this.duracao = duracao;
+        this.tipoRota = tipoRota;
     }
 
     public RotaDtoResponse domainToResponse() {
