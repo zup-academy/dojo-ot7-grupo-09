@@ -41,7 +41,7 @@ public class RotaForm {
         Optional<Aeroporto> aeroportoOrigem = aeroportoRepository.findById(this.idAeroportoOrigem);
         Optional<Aeroporto> aeroportoDestino = aeroportoRepository.findById(this.idAeroportoOrigem);
 
-        if (this.nome.isBlank()) {
+        if (this.nome == null || this.nome.isBlank()) {
             return new Rota(aeroportoOrigem.get().getNome() + aeroportoDestino.get().getNome(),
                     aeroportoOrigem.get(), aeroportoDestino.get(), duracao, tipoRota);
         }

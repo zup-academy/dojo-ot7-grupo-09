@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Voos {
     @Positive
     private int lugares;
     @NotNull
-    @Min(1)
+    @Size(min=1)
     @OneToMany(mappedBy = "voos")
     private List<Rota> rotas = new ArrayList<Rota>();
 
@@ -41,6 +42,15 @@ public class Voos {
     }
 
     public VoosDtoResponse domainToResponse() {
-        return new VoosDtoResponse(Long id, LocalDateTime tempoParada, int lugares, List<Rota> rotas);
+        return new VoosDtoResponse(
+                id,
+                tempoParada,
+                lugares,
+                rotas
+        );
+    }
+
+    public Voos(Long id) {
+        this.id = id;
     }
 }
