@@ -1,22 +1,22 @@
 package br.com.zup.edu.nossositedeviagens.DTO;
 
-public class RotaResponse {
+public class RotaDtoResponse {
 
     private Long id;
 
     private String nome;
 
-    private AeroportoResponseDTO aeroportoResponseOrigem;
+    private AeroportoDtoResponse aeroportoDtoResponseOrigem;
 
-    private AeroportoResponseDTO aeroportoResponseDestino;
+    private AeroportoDtoResponse aeroportoDtoResponseDestino;
 
     private Integer duracao;
 
-    public RotaResponse(Long id, String nome, AeroportoResponseDTO aeroportoResponseOrigem, AeroportoResponseDTO aeroportoResponseDestino, Integer duracao) {
+    public RotaDtoResponse(Long id, String nome, AeroportoDtoResponse aeroportoDtoResponseOrigem, AeroportoDtoResponse aeroportoDtoResponseDestino, Integer duracao) {
         this.id = id;
         this.nome = nome;
-        this.aeroportoResponseOrigem = aeroportoResponseOrigem;
-        this.aeroportoResponseDestino = aeroportoResponseDestino;
+        this.aeroportoDtoResponseOrigem = aeroportoDtoResponseOrigem;
+        this.aeroportoDtoResponseDestino = aeroportoDtoResponseDestino;
         this.duracao = duracao;
     }
 
@@ -32,11 +32,11 @@ public class RotaResponse {
         return duracao;
     }
 
-    public AeroportoResponseDTO getAeroportoResponseOrigem() {
-        return aeroportoResponseOrigem;
+    public AeroportoDtoResponse getAeroportoResponseOrigem() {
+        return aeroportoDtoResponseOrigem;
     }
 
-    public AeroportoResponseDTO getAeroportoResponseDestino() {
-        return aeroportoResponseDestino;
+    public AeroportoDtoResponse getAeroportoResponseDestino() {
+        return aeroportoDtoResponseDestino;
     }
 }

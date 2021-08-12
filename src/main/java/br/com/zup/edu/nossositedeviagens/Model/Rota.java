@@ -1,7 +1,7 @@
 package br.com.zup.edu.nossositedeviagens.Model;
 
-import br.com.zup.edu.nossositedeviagens.DTO.AeroportoResponseDTO;
-import br.com.zup.edu.nossositedeviagens.DTO.RotaResponse;
+import br.com.zup.edu.nossositedeviagens.DTO.AeroportoDtoResponse;
+import br.com.zup.edu.nossositedeviagens.DTO.RotaDtoResponse;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,6 +26,7 @@ public class Rota {
     @NotNull
     private Integer duracao;
 
+    @Deprecated
     public Rota() {
     }
 
@@ -36,10 +37,11 @@ public class Rota {
         this.duracao = duracao;
     }
 
-    public RotaResponse domainToResponse() {
-        return new RotaResponse(this.id, this.nome,
-                new AeroportoResponseDTO(this.aeroportoOrigem),
-                new AeroportoResponseDTO(this.aeroportoDestino));
+    public RotaDtoResponse domainToResponse() {
+        return new RotaDtoResponse(this.id, this.nome,
+                new AeroportoDtoResponse(this.aeroportoOrigem),
+                new AeroportoDtoResponse(this.aeroportoDestino),
+                this.duracao);
     }
 
     public Long getId() {

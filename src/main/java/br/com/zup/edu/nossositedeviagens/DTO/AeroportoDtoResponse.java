@@ -2,7 +2,7 @@ package br.com.zup.edu.nossositedeviagens.DTO;
 
 import br.com.zup.edu.nossositedeviagens.Model.Aeroporto;
 
-public class AeroportoResponseDTO {
+public class AeroportoDtoResponse {
 
     private Long id;
 
@@ -22,7 +22,7 @@ public class AeroportoResponseDTO {
         return pais;
     }
 
-    public AeroportoResponseDTO(Aeroporto aeroporto) {
+    public AeroportoDtoResponse(Aeroporto aeroporto) {
         this.id = aeroporto.getId();
         this.nome = aeroporto.getNome();
         this.pais = new PaisDtoResponse(aeroporto.getPais());

@@ -1,6 +1,6 @@
 package br.com.zup.edu.nossositedeviagens.Controller;
 
-import br.com.zup.edu.nossositedeviagens.DTO.AeroportoResponseDTO;
+import br.com.zup.edu.nossositedeviagens.DTO.AeroportoDtoResponse;
 import br.com.zup.edu.nossositedeviagens.Form.AeroportoForm;
 import br.com.zup.edu.nossositedeviagens.Model.Aeroporto;
 import br.com.zup.edu.nossositedeviagens.Repository.AeroportoRepository;
@@ -28,11 +28,11 @@ public class AeroportoController {
     }
 
     @PostMapping
-    public ResponseEntity<AeroportoResponseDTO> addAeroporto(@RequestBody @Valid AeroportoForm form, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<AeroportoDtoResponse> addAeroporto(@RequestBody @Valid AeroportoForm form, UriComponentsBuilder uriBuilder) {
         Aeroporto aeroporto = form.toModel(paisRepository);
         aeroportoRepository.save(aeroporto);
 
         URI uri = uriBuilder.path("/aeroporto/{id}").buildAndExpand(aeroporto.getId()).toUri();
-        return ResponseEntity.created(uri).body(new AeroportoResponseDTO(aeroporto));
+        return ResponseEntity.created(uri).body(new AeroportoDtoResponse(aeroporto));
     }
 }

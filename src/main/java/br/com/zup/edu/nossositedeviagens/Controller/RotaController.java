@@ -1,6 +1,6 @@
 package br.com.zup.edu.nossositedeviagens.Controller;
 
-import br.com.zup.edu.nossositedeviagens.DTO.RotaResponse;
+import br.com.zup.edu.nossositedeviagens.DTO.RotaDtoResponse;
 import br.com.zup.edu.nossositedeviagens.Form.RotaForm;
 import br.com.zup.edu.nossositedeviagens.Model.Rota;
 import br.com.zup.edu.nossositedeviagens.Repository.AeroportoRepository;
@@ -28,7 +28,7 @@ public class RotaController {
     }
 
     @PostMapping
-    public ResponseEntity<RotaResponse> addRota(@RequestBody @Valid RotaForm rotaForm, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<RotaDtoResponse> addRota(@RequestBody @Valid RotaForm rotaForm, UriComponentsBuilder uriBuilder) {
 
 
         Rota rota = repository.save(rotaForm.formToModel(aeroportoRepository));
